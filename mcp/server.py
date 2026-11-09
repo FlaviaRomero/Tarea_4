@@ -180,6 +180,43 @@ def correlacion(codigo_a: str, codigo_b: str, desde: str, hasta: str) -> dict:
             "fuente": [f"{API}/{codigo_a}", f"{API}/{codigo_b}"]}
 
 
+# ---------- Herramienta extra · gráfico para informes ----------
+@mcp.tool(annotations={"readOnlyHint": False, "openWorldHint": True})
+def graficar_serie(codigo: str, desde: str, hasta: str) -> dict:
+    """Guarda un gráfico de línea de una serie del BCRP en figuras/bcrp_<codigo>.png y devuelve la ruta y las cifras.
+
+    Úsala cuando pidan un gráfico de una serie del BCRP, por ejemplo para un informe.
+    Mismo formato de fechas que la herramienta serie. Ejemplo: codigo='PN01273PM', desde='2023-01', hasta='2024-12'.
+    """
+    import matplotlib
+    matplotlib.use("Agg")
+    import matplotlib.pyplot as plt
+
+    s = _serie(codigo, desde, hasta)
+    d = s["datos"]
+    if not d:
+        raise ToolError(f"La serie {codigo} no tiene datos entre {desde} y {hasta}.")
+    periodos = [x["periodo"] for x in d]
+    valores = [x["valor"] for x in d]
+    fig, ax = plt.subplots(figsize=(8, 4))
+    ax.plot(range(len(d)), valores, color="#2b6c8f", lw=2)
+    paso = max(1, len(d) // 8)
+    ax.set_xticks(range(0, len(d), paso), periodos[::paso], rotation=45, ha="right", fontsize=8)
+    ax.annotate(f"{valores[-1]:.2f}", (len(d) - 1, valores[-1]), xytext=(4, 0), textcoords="offset points", fontsize=9)
+    ax.set_title(f"{s['nombre'][:90]}\nSerie {codigo}, {periodos[0]} a {periodos[-1]}", loc="left", fontsize=10)
+    for lado in ("top", "right"):
+        ax.spines[lado].set_visible(False)
+    fig.text(0.01, 0.01, f"Fuente: BCRP, estadisticas.bcrp.gob.pe, serie {codigo}.", fontsize=8, color="#555")
+    fig.tight_layout(rect=(0, 0.04, 1, 1))
+    carpeta = AQUI.parent / "figuras"
+    carpeta.mkdir(exist_ok=True)
+    ruta = carpeta / f"bcrp_{codigo}.png"
+    fig.savefig(ruta, dpi=200)
+    plt.close(fig)
+    return {"ruta": f"figuras/{ruta.name}", "codigo": codigo, "nombre": s["nombre"], "desde": periodos[0],
+            "hasta": periodos[-1], "ultimo": d[-1], "n_periodos": len(d), "fuente": s["fuente"]}
+
+
 # ---------- TODO 4 · recurso ----------
 @mcp.resource("bcrp://serie/{codigo}")
 def ficha_serie(codigo: str) -> dict:
