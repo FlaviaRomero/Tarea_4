@@ -135,7 +135,6 @@ Sin herramientas, el modelo prefirió responder `null` antes que estimar. Solo a
   - Varias sesiones llamaron al MCP del BCRP sin necesitarlo.
 - **Evidencias e informes:**
   - `evidencias_ia/integracion/sesion_agente_completa.jsonl` (transcripción cruda de la sesión) no está versionado. Contiene rutas locales y datos de la cuenta; se decidió no subirlo y se dejó `conversacion_agente.txt`.
-  - `evidencias_ia/evaluacion/` existe en disco pero está vacía.
   - Se eliminó la carpeta duplicada `skills_enaho/`; las Skills vigentes están en `.claude/skills/`.
   - En Windows, la consola puede mostrar mal los acentos de la salida de los scripts; los archivos (`salidas/validacion.txt`, informes) están en UTF-8. Para verlos bien, usar `Get-Content ... -Encoding UTF8`.
 - **No versionados (por `.gitignore`):** `datos/` y `salidas/*.parquet`. Hay que regenerarlos con los comandos de la sección 8.
@@ -164,7 +163,7 @@ Sin herramientas, el modelo prefirió responder `null` antes que estimar. Solo a
 - [`evidencias_ia/mcp/`](evidencias_ia/mcp/): conversación de construcción del servidor MCP (`conversacion_mcp.txt`), la salida de las pruebas (`pytest_10_passed.txt`) y 4 capturas de pantalla del 2026-11-08.
 - [`evidencias_ia/skills/`](evidencias_ia/skills/): conversación de construcción de las Skills (`conversacion_skills.txt`) y una captura de pantalla del 2026-11-09.
 - [`evidencias_ia/integracion/`](evidencias_ia/integracion/): conversación exportada de la ejecución del agente integrado (`conversacion_agente.txt`).
-- `evidencias_ia/evaluacion/`: reservada para la evidencia de la evaluación; actualmente vacía.
+- [`evidencias_ia/evaluacion/`](evidencias_ia/evaluacion/): conversación exportada de la sesión de evaluación y del README (`conversacion_evaluacion_readme.txt`).
 
 ## Estructura del repositorio
 
