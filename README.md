@@ -128,7 +128,7 @@ Sin herramientas, el modelo prefirió responder `null` antes que estimar. Solo a
 
 - **Cobertura:** la ENAHO es anual y la inflación es mensual y solo de Lima Metropolitana. El informe es descriptivo y no afirma causalidad entre inflación y pobreza.
 - **Error muestral:** las estimaciones por departamento tienen márgenes de error que no se calculan aquí. El mapa difiere hasta 0.5 pp de la referencia (Huánuco y Puno).
-- **Cifras del BCRP sin contraste independiente:** en `informes/informe_final.md` las dos cifras del BCRP se marcan como «no verificable de forma independiente», porque la única referencia es la misma API.
+- **Contraste de las cifras del BCRP:** en `informes/informe_final.md` la inflación y la tasa de referencia de diciembre de 2024 se contrastaron a mano con las tablas web del BCRP (coinciden, 0.00 pp). El contraste es manual y solo cubre esas dos cifras.
 - **Evaluación:**
   - Una sola corrida por pregunta y un solo modelo, así que no mide variabilidad.
   - En las preguntas de ENAHO, el modo «con» lee resultados ya calculados en `salidas/`; no es un cálculo desde cero.
