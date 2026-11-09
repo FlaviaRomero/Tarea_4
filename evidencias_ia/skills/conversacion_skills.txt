@@ -1,0 +1,98 @@
+ ▐▛███▛█   Claude Code v2.1.319
+▝▜██████▀  Sonnet 5.5 · Claude Pro
+ ▝▝   ▝▝   C:\tarea 4
+
+  Opus 5.5 is now your default model and it draws down usage faster than Sonnet 5. Switch anytime with /model.
+
+> /skills 
+  ⎿  No changes
+
+> Haz un mapa de la pobreza monetaria por departamento con ENAHO 2024           
+
+● Skill(mapeando-enaho)
+  ⎿  Successfully loaded skill
+
+  Ran 1 shell command (ctrl+o to expand)
+
+● Falta la base limpia; uso la skill limpiando-enaho.
+
+● Skill(limpiando-enaho)
+  ⎿  Successfully loaded skill
+
+  Ran 1 shell command (ctrl+o to expand)
+
+● Validaciones aprobadas. Ahora el mapa.
+
+  Read 1 file, ran 1 shell command (ctrl+o to expand)
+
+● Hice el mapa de la pobreza monetaria por departamento con la ENAHO 2024 y está
+  guardado en mapas/pobreza_departamento.png. Mostró los 25 departamentos con
+  dato, con Lima y Callao por separado.
+
+  Antes de mapear tuve que limpiar la base con limpiando-enaho, porque
+  salidas/personas_2024.parquet no existía. Esa limpieza pasó todas sus
+  validaciones. La pobreza nacional ponderada salió en 27.53 %, frente a 27.6 %
+  de referencia.
+
+  - Mayor pobreza: Cajamarca, 45.0 %.
+  - Menor pobreza: Ica, 5.9 %.
+  - Otros departamentos con pobreza alta: Loreto (42.6 %), Puno (40.4 %) y
+    Huánuco (39.5 %).
+
+  Aviso sobre la referencia de la Sesión 16: la diferencia máxima es 0.5 pp,
+  justo en el límite de 0.5 pp. Ocurre en Huánuco (39.0 → 39.5) y en Puno (39.9
+  → 40.4), y ninguna la supera. El detalle por departamento está en
+  salidas/comparacion_mapa.csv.
+
+  En la imagen, los números del Callao (34 %) y de Lima (27 %) se solapan y el
+  de Callao queda ilegible.
+
+  Fuente: INEI, ENAHO 2024; estimación ponderada.
+
+✻ Sautéed for 36s · done 0:27
+
+> Grafica la pobreza urbana y rural                                             
+
+● Skill(graficando-enaho)
+  ⎿  Successfully loaded skill
+
+  Read 1 file, ran 1 shell command (ctrl+o to expand)
+
+● Gráfico guardado en figuras/pobreza_area.png.
+
+  ┌────────┬───────────────────┐
+  │  Área  │ Pobreza monetaria │
+  ├────────┼───────────────────┤
+  │ Rural  │ 39.4 %            │
+  ├────────┼───────────────────┤
+  │ Urbana │ 24.7 %            │
+  ├────────┼───────────────────┤
+  │ Perú   │ 27.5 %            │
+  └────────┴───────────────────┘
+
+  - La pobreza rural es 14.7 pp mayor que la urbana, y 11.9 pp mayor que el
+    promedio nacional.
+  - La urbana queda 2.8 pp por debajo del promedio nacional.
+  - Las cifras coinciden con las de referencia de la validación: 24.8 % urbana y
+    39.3 % rural.
+
+  Dos detalles de formato en la imagen: la etiqueta «Perú: 27.5 %» se solapa con
+  el subtítulo, y la línea punteada cruza la etiqueta de la barra urbana. Se
+  leen, pero el gráfico no quedó del todo limpio. Puedo ajustar la posición de
+  esas etiquetas en el script si quieres.
+
+  Fuente: INEI, ENAHO 2024; estimación ponderada.
+
+✻ Baked for 11s · done 0:29
+
+> ¿Cuál fue la pobreza en Cusco en 2024?                                        
+
+● En 2024, la pobreza monetaria en Cusco fue de 18.5 % de las personas. Es la
+  cifra que calculé con la ENAHO 2024 ponderada con facpob07, y coincide con la
+  referencia de la Sesión 16 (diferencia de 0.0 pp).
+
+  Está 9.0 pp por debajo del promedio nacional (27.5 %).
+
+  Fuente: INEI, ENAHO 2024; estimación ponderada.
+
+✻ Cooked for 2s · done 0:30

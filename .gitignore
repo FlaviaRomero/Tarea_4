@@ -2,3 +2,7 @@
 datos/
 __pycache__/
 .pytest_cache/
+salidas/*.parquet
+salidas/*.parquet
+salidas/*.parquet
+salidas/*.parquet

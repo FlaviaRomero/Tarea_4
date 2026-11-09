@@ -1,0 +1,23 @@
+VALIDACIÓN ENAHO 2024 (código INEI 966)
+
+Módulo 34: 966-Modulo34.zip:966-Modulo34/sumaria-2024.dta
+Módulo 02: 966-Modulo02.zip:966-Modulo02/enaho01-2024-200.dta
+
+[     APROBADA      ] Llaves de hogar únicas en sumaria: 33,691 hogares (referencia 33,691)
+[     APROBADA      ] Llaves de persona únicas en miembros: 117,721 filas en el módulo 02
+[     APROBADA      ] Residentes habituales: 108,664 (referencia 108,664)
+[     APROBADA      ] La unión no duplica filas: 108,664 antes y 108,664 después
+[     APROBADA      ] Toda persona tiene hogar en la sumaria: 0 personas sin hogar
+[     APROBADA      ] Factor de expansión facpob07 completo y positivo: 0 faltantes
+[     APROBADA      ] 25 códigos territoriales: 25 códigos: 01–25
+[     APROBADA      ] Pobreza nacional ponderada (personas, facpob07): 27.53 % (referencia 27.6 %, tolerancia ±0.1 pp)
+[     APROBADA      ] Pobreza nacional ponderada (hogares, factor07 × mieperho): 27.58 %
+[     APROBADA      ] Pobreza urbana (estrato <= 5): 24.74 % (referencia 24.8 %)
+[     APROBADA      ] Pobreza rural (estrato >= 6): 39.44 % (referencia 39.3 %)
+
+Otras cifras (informativas):
+  Pobreza extrema ponderada: 5.50 %
+  Pobreza SIN ponderar (promedio simple, NO usar): 25.61 %
+  Población expandida: 34,147,768 personas
+
+RESULTADO: TODAS LAS VALIDACIONES ESENCIALES APROBADAS
