@@ -52,8 +52,8 @@
 
 | Afirmación | Valor calculado | Fuente o procedimiento | Referencia oficial | ¿Coincide? | Diferencia |
 |---|---|---|---|---|---|
-| Inflación 12m dic-2024 | 1.97 % | MCP `resumen` `PN01273PM` | No se dispuso de otra referencia independiente; es la misma fuente BCRP | No verificable de forma independiente | n/d |
-| Tasa de referencia dic-2024 | 5.00 % | MCP `resumen` `PD04722MM` | No se dispuso de otra referencia independiente; es la misma fuente BCRP | No verificable de forma independiente | n/d |
+| Inflación 12m dic-2024 | 1.97 % | MCP `resumen` `PN01273PM` | 1.97 % (tabla web del BCRP consultada a mano): [PN01273PM](https://estadisticas.bcrp.gob.pe/estadisticas/series/mensuales/resultados/PN01273PM/html/2024-1/2024-12/) | Sí | 0.00 pp |
+| Tasa de referencia dic-2024 | 5.00 % | MCP `resumen` `PD04722MM` | 5.00 % (tabla web del BCRP consultada a mano): [PD04722MM](https://estadisticas.bcrp.gob.pe/estadisticas/series/mensuales/resultados/PD04722MM/html/2024-1/2024-12/) | Sí | 0.00 pp |
 | Pobreza nacional | 27.53 % | `limpiar.py`, ponderado `facpob07` | 27.6 % (INEI) | Sí (tolerancia ±0.1 pp) | −0.07 pp |
 | Pobreza urbana | 24.74 % | `limpiar.py`, `estrato <= 5` | 24.8 % (INEI) | Sí | −0.06 pp |
 | Pobreza rural | 39.44 % | `limpiar.py`, `estrato >= 6` | 39.3 % (INEI) | Sí (el script la aprobó; desvío mayor que en las otras dos) | +0.14 pp |
@@ -64,17 +64,16 @@
 - **Cobertura temporal:** la ENAHO es un corte anual y la inflación es mensual, así que no se pueden cruzar mes a mes.
 - **Cobertura geográfica de precios:** la inflación es solo de Lima Metropolitana, no del país.
 - **Error muestral:** las estimaciones por departamento tienen márgenes de error que este informe no calcula. Diferencias pequeñas entre departamentos pueden no ser significativas.
-- **Referencias BCRP:** no hay una cifra oficial independiente en el pedido para contrastar las series del BCRP.
 - **Desvío rural:** el valor rural (39.44 %) se desvía 0.14 pp de la referencia, más que los otros dos indicadores.
 - **Errores en esta ejecución:** ninguno. Todas las herramientas y scripts terminaron sin error. La salida de consola de Windows mostró caracteres mal codificados, pero `salidas/validacion.txt` está en UTF-8 correcto.
 
 ## 8. Reproducibilidad
 
 ```
-uv run python "C:/tarea 4/.claude/skills/limpiando-enaho/scripts/limpiar.py" --anio 2024
-uv run python "C:/tarea 4/.claude/skills/graficando-enaho/scripts/graficar.py" --por area
-uv run python "C:/tarea 4/.claude/skills/graficando-enaho/scripts/graficar.py" --por departamento
-uv run python "C:/tarea 4/.claude/skills/mapeando-enaho/scripts/mapear.py"
+uv run python ".claude/skills/limpiando-enaho/scripts/limpiar.py" --anio 2024
+uv run python ".claude/skills/graficando-enaho/scripts/graficar.py" --por area
+uv run python ".claude/skills/graficando-enaho/scripts/graficar.py" --por departamento
+uv run python ".claude/skills/mapeando-enaho/scripts/mapear.py"
 ```
 
 - **Herramientas MCP `bcrp`:** `buscar_series`, `resumen`, `graficar_serie` (`codigo=PN01273PM`, `desde=2023-01`, `hasta=2024-12`).
